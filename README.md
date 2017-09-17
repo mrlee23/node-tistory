@@ -1,12 +1,12 @@
 node-tistory
 ============
 
-***node-tistory***는 [Tistory](http://tistory.com)의 오픈 API를 사용하기 위한 Node.js 모듈이다.
+**node-tistory**는 [Tistory](http://tistory.com)의 오픈 API를 사용하기 위한 Node.js 모듈이다.
 
 
 Install global module
 ======================
-***node-tistory***는 global로 설치하기 위해서 다음과 같이 `npm install -g`로 설치할 수 있다.
+**node-tistory**는 global로 설치하기 위해서 다음과 같이 `npm install -g`로 설치할 수 있다.
 
 ```
 npm install -g node-tistory
@@ -30,8 +30,8 @@ var Tistory = require('node-tistory');
 
 Global configuration file
 =========================
-***node-tistory***는 `$HOME/.tistory.json` 파일을 글로벌 설정 파일로 읽어들인다.
-***node-tistory***를 사용할 때 필요한 옵션정보를 `.tistory.json`에 미리 저장해두면 항상 이 설정 파일을 먼저 읽어서 옵션정보로 설정한다.
+**node-tistory**는 `$HOME/.tistory.json` 파일을 글로벌 설정 파일로 읽어들인다.
+**node-tistory**를 사용할 때 필요한 옵션정보를 `.tistory.json`에 미리 저장해두면 항상 이 설정 파일을 먼저 읽어서 옵션정보로 설정한다.
 
 
 ```bash
@@ -48,7 +48,7 @@ Tistory에서 제공하고 있는 [오픈 API 가이드](http://www.tistory.com/
 
 node-tistory API interface
 ==========================
-***node-tistory*** 에서는 Tistory의 오픈 API를 간단하게 바로 사용할 수 있도록 메소드 형태의 interface를 제공하고 있다.
+**node-tistory** 에서는 Tistory의 오픈 API를 간단하게 바로 사용할 수 있도록 메소드 형태의 interface를 제공하고 있다.
 
 
 | 모듈 | 인터페이스 | Tistory API | 설명 |
@@ -63,7 +63,7 @@ node-tistory API interface
 ||find||분류 검색|
 
 모든 interface 메소드는 params, callback을 인자값으로 사용한다. params는 Object 형태이고 callback은 `err`,`body`,`res` 값을 받는 함수 형태이다.
-params의 `key`는 Tistory 오픈 API의 ***Request Parameter***의 이름과 동일하다.
+params의 `key`는 Tistory 오픈 API의 **Request Parameter**의 이름과 동일하다.
 
 e.g. 티스토리 블로그 http://blog.saltfactory.net 정보 보기
 
@@ -94,7 +94,7 @@ tistory.post.list(params, function(err, body, res){
 
 node-tistory interface parameters
 =================================
-***node-tistory***의 인터페이스의 파라미터는 Object 형태로 지정한다.
+**node-tistory**의 인터페이스의 파라미터는 Object 형태로 지정한다.
 ```javascript
 var params = {
   'targetUrl':'blog.saltfactory.net'
@@ -106,7 +106,7 @@ var params = {
 | params | 값 | 설명 | 필요 |
 |---------|-----|-----|-----|
 | access_token | String | OAuth 2.0 인증 후 획득한 access_token | 필수 |
-| targetUrl | String| http://saltfactory.tistory.com 과 같이 1차 도메인 경우 ***saltfactory***, http://blog.saltfactory.net 과 같이 2차 도메인일 경우 ***blog.saltfactory.net*** | 필수 |
+| targetUrl | String| http://saltfactory.tistory.com 과 같이 1차 도메인 경우 **saltfactory**, http://blog.saltfactory.net 과 같이 2차 도메인일 경우 **blog.saltfactory.net** | 필수 |
 | output | 'json','xml' | 기본값 'json' | 옵션 |
 | 없음 | 없음 | 파라미터 없이 콜백함수만 사용 가능 | 없음 |
 
@@ -139,6 +139,7 @@ var params = {
 |access_token|String| OAuth 2.0 인증 후 획득한 access_token|필수|
 |targetUrl|String| 블로그 URL |필수|
 |title|String| 글 제목 |필수|
+|category|Number| 카테고리 아이디 |옵션|
 |content | String | 글 내용|옵션|
 |visibility| 0,1,2,3|0:비공개, 1:보호, 2:공개, 3:발행, 생략시 0|옵션|
 |published|String|UNIX_TIMESTAMP() 예약발송|옵션|
@@ -153,6 +154,7 @@ var params = {
 |targetUrl|String| 블로그 URL |필수|
 |postId|Number | 수정할 글 번호 | 필수 |
 |title|String| 글 제목 |필수|
+|category|Number| 카테고리 아이디 |옵션|
 |content | String | 글 내용|옵션|
 |visibility| 0,1,2,3|0:비공개, 1:보호, 2:공개, 3:발행, 생략시 0|옵션|
 |published|String|UNIX_TIMESTAMP() 예약발송|옵션|
@@ -186,7 +188,7 @@ var params = {
 |output|'json','xml'| 기본값 'json'|옵션|
 
 > Tistory의 모든 API는 access_token, targetUrl 그리고 output 파라미터를 사용하기 때문에
-> ***node-tistory***의 global configuration file인 `$HOME/.tistory.json`에 다음과 같이 저장해두면 파라미터로 설정하지 않아도 된다.
+> **node-tistory**의 global configuration file인 `$HOME/.tistory.json`에 다음과 같이 저장해두면 파라미터로 설정하지 않아도 된다.
 
 ```javascript
 {
@@ -209,7 +211,7 @@ tistory.post.list(params, function(err,body){
 
 tistory command
 ================
-***node-tistory***를 `npm install -g`로 설치를 하면 `tistory` 명령어를 사용할 수 있다.
+**node-tistory**를 `npm install -g`로 설치를 하면 `tistory` 명령어를 사용할 수 있다.
 만약 `$HOME/.tistory.json` 파일에 설정이 저장된 상태라고 생각하면 명령어 사용은 다음과 같다.
 
 |명령어 옵션 | 설명 |
